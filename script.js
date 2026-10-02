@@ -1,42 +1,4 @@
-// A list of city objects, each containing coordinates and an array of hints
-const citiesData = [
-  {
-    city: "Boston",
-    lat: 42.3601,
-    lon: -71.0589,
-    hints: [
-      "Praia, Cape Verde became a sister city in 2015.",
-      "The plurality ancestry is Black, at 22%",
-      "On January 15, 1919, a flood of molasses in the city killed 21 people and injured 150.",
-      "This city had the first subway system in the United States, created in 1837.",
-      "It has done over 5000 acres of land reclamation, the most in the United States."
-    ]
-  },
-  {
-    city: "Tokyo",
-    lat: 35.6762,
-    lon: 139.6503,
-    hints: [
-      "This city is the capital of Japan.",
-      "It is famous for the bustling Shibuya Crossing.",
-      "It features the iconic Tokyo Tower and delicious ramen.",
-      "It was formerly known as Edo.",
-      "It is the most populous metropolitan area in the world."
-    ]
-  },
-  {
-    city: "Paris",
-    lat: 48.8566,
-    lon: 2.3522,
-    hints: [
-      "This city is known as the City of Light.",
-      "It is home to the famous Eiffel Tower.",
-      "It is situated along the River Seine in France.",
-      "It features the Louvre Museum.",
-      "It is world-famous for fashion and croissants."
-    ]
-  }
-];
+
 
 // Game State Variables
 let currentCityData = null;
@@ -127,10 +89,19 @@ guessButton.addEventListener("click", function() {
     return;
   }
 
-  // Find coordinates by matching primary city name OR any alias
+  // Find coordinates by matching primary city name OR any alias from knownCities (loaded via possible_cities.js)
   const guessedCityData = knownCities.find(c => 
     c.city.toLowerCase() === userGuess || 
     (c.aliases && c.aliases.includes(userGuess))
+  );
+
+  // Check if the current secret target city matches the user's guess (either by main name OR by alias)
+  const isCorrect = currentCityData && (
+    userGuess === currentCityData.city.toLowerCase() ||
+    (
+      guessedCityData && 
+      guessedCityData.city.toLowerCase() === currentCityData.city.toLowerCase()
+    )
   );
 
   let feedback = "";
@@ -147,7 +118,7 @@ guessButton.addEventListener("click", function() {
     // Set item text color based on distance gradient
     itemColor = getDistanceColor(currentDistance);
 
-    if (userGuess === currentCityData.city.toLowerCase()) {
+    if (isCorrect) {
       feedback = " — Correct!";
     } else if (previousDistance === null) {
       // First guess: Show miles ONLY
@@ -173,7 +144,7 @@ guessButton.addEventListener("click", function() {
   guessesList.appendChild(newGuessItem);
 
   // Check if guess is correct
-  if (userGuess === currentCityData.city.toLowerCase()) {
+  if (isCorrect) {
     revealAllHints();
     alert("Congrats, you got it right!");
     showGameOver();

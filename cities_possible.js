@@ -2,7 +2,7 @@
 const knownCities = [
   // UNITED STATES & CANADA
   { city: "Boston", lat: 42.3601, lon: -71.0589 },
-  { city: "New York", aliases: ["nyc", "new york city", "ny"], lat: 40.7128, lon: -74.0060 },
+  { city: "New York City", aliases: ["nyc", "new york", "ny"], lat: 40.7128, lon: -74.0060 },
   { city: "Los Angeles", aliases: ["la"], lat: 34.0522, lon: -118.2437 },
   { city: "Chicago", lat: 41.8781, lon: -87.6298 },
   { city: "Houston", lat: 29.7604, lon: -95.3698 },
