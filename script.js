@@ -5,11 +5,11 @@ const citiesData = [
     lat: 42.3601,
     lon: -71.0589,
     hints: [
-      "This city is located on the East Coast of the United States.",
-      "It is famous for the Freedom Trail and rich American history.",
-      "It is known for its famous baked beans and Fenway Park.",
-      "It is the capital city of Massachusetts.",
-      "It is home to Harvard and MIT nearby across the Charles River."
+      "Praia, Cape Verde became a sister city in 2015.",
+      "The plurality ancestry is Black, at 22%",
+      "On January 15, 1919, a flood of molasses in the city killed 21 people and injured 150.",
+      "This city had the first subway system in the United States, created in 1837.",
+      "It has done over 5000 acres of land reclamation, the most in the United States."
     ]
   },
   {
