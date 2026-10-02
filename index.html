@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>City Guessing Game</h1>
+
+  <main class="game-container">
+    <!-- Left Column: Hints -->
+    <section class="column">
+      <h2>Hints</h2>
+      <ul id="hints-list"></ul>
+    </section>
+
+    <!-- Right Column: Past Guesses -->
+    <section class="column">
+      <h2>Past Guesses</h2>
+      <ul id="guesses-list"></ul>
+    </section>
+  </main>
+
+  <!-- Bottom Section: Input -->
+  <footer class="input-container">
+    <input type="text" id="city-input" placeholder="Type a city name...">
+    <button id="guess-button">Guess</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
